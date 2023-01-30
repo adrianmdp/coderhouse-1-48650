@@ -1,17 +1,26 @@
 import { inhabitants } from '../data/inhabitants'
 
 
-const getAll = () => {
+const getAll = async () => {
 
-    return new Promise((resolve, reject) => {
+    const response = await fetch("https://conectadas-1192e-default-rtdb.firebaseio.com/users.json")
+    const data = await response.json()
 
-        setTimeout(() => {
-            resolve(inhabitants)
-        }, [3000])
-
-    })
-
+    return data;
+     
 }
+
+// const getAll = () => {
+
+//     return new Promise((resolve, reject) => {
+
+//         setTimeout(() => {
+//             resolve(inhabitants)
+//         }, [3000])
+
+//     })
+
+// }
 
 const get = (id) => {
 

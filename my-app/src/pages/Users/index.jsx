@@ -7,9 +7,11 @@ const Users = () => {
     const [ users, setUsers ] = useState([])
 
     useEffect(() => {
-        usersService.getAll().then(response => setUsers(response))
-        console.log('pasa')
-    }, [users])
+        usersService.getAll().then(data => setUsers(data))
+        
+    }, [])
+
+    console.log(users)
 
     return (
 
@@ -29,7 +31,7 @@ const Users = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {
+                    {/* {
                         users.map(user => {
                             return (
                                 <tr key={user.id}>
@@ -45,7 +47,7 @@ const Users = () => {
                                 </tr>
                             )
                         })
-                    }
+                    } */}
                 </tbody>
             </table>
         </>
