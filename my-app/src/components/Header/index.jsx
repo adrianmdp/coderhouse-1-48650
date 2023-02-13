@@ -1,4 +1,9 @@
+import { useContext } from "react"
+import { AuthContext } from "../../contexts"
+
 const Header = () => {
+
+    const { id, name, lastname } = useContext(AuthContext)
 
     return (
 
@@ -15,7 +20,12 @@ const Header = () => {
 
             <nav>
                 <ul>
-                    <a href="">Cart</a>
+                    <li>
+                        Hola {`${name} ${lastname} (${id})`}
+                    </li>
+                    <li>
+                        <a href="">Cart</a>
+                    </li>
                 </ul>
             </nav>
         </header>
@@ -23,3 +33,5 @@ const Header = () => {
     )
 
 }
+
+export { Header }
