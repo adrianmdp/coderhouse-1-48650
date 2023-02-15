@@ -7,7 +7,7 @@ const Users = () => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    usersService.getAll().then((data) => setUsers(data));
+    usersService.getByName("Pepe").then((data) => setUsers(data));
   }, []);
 
   console.log(users);
@@ -20,12 +20,10 @@ const Users = () => {
         <thead>
           <tr>
             <th>id</th>
-            <th>name</th>
-            <th>thumbnail</th>
-            <th>age</th>
-            <th>weight</th>
-            <th>height</th>
-            <th>hair_color</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Email</th>
+            <th>Contraseña</th>
           </tr>
         </thead>
         <tbody>
@@ -36,13 +34,9 @@ const Users = () => {
                 <td>
                   <Link to={`/users/${user.id}`}>{user.name}</Link>
                 </td>
-                <td>
-                  <img height={100} src={`${user.thumbnail}`} alt={user.name} />
-                </td>
-                <td>{user.age}</td>
-                <td>{user.weight}</td>
-                <td>{user.height}</td>
-                <td>{user.hair_color}</td>
+                <td>{user.lastname}</td>
+                <td>{user.email}</td>
+                <td>{user.password}</td>
               </tr>
             );
           })}

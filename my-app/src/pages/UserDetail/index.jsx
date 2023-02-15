@@ -12,7 +12,14 @@ const UserDetail = () => {
     usersService.get(userId).then((data) => setUser(data));
   }, [userId]);
 
-  return <div>Nombre: {user && user.name}</div>;
+  return (
+    user && (
+      <>
+        <div>Nombre: {user && user.name}</div>;
+        <div>Apellido: {user && user.lastname}</div>
+      </>
+    )
+  );
 };
 
 export { UserDetail };
